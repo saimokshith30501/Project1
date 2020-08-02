@@ -51,38 +51,37 @@ public class VerifyOTP extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verifyotp);
-        fname=getIntent().getStringExtra("FNAME");
-        email=getIntent().getStringExtra("EMAIL");
-        phone=getIntent().getStringExtra("PHONE");
-        password=getIntent().getStringExtra("PASSWORD");
-        phoneVerified=findViewById(R.id.phone_verified);
-        phoneVerification=findViewById(R.id.phone_verificaction);
+        fname = getIntent().getStringExtra("FNAME");
+        email = getIntent().getStringExtra("EMAIL");
+        phone = getIntent().getStringExtra("PHONE");
+        password = getIntent().getStringExtra("PASSWORD");
+        phoneVerified = findViewById(R.id.phone_verified);
+        phoneVerification = findViewById(R.id.phone_verificaction);
         sendVerificationCodeToUser(phone);
-        pinFromUser=findViewById(R.id.pin_view);
-        Backtosignup=findViewById(R.id.close_verify);
-        VerifyOtp=findViewById(R.id.verifyOtpButton);
-        VerifyOtp=findViewById(R.id.verifyOtpButton);
-        VerifyOtp=findViewById(R.id.verifyOtpButton);
-        VerifyOtp=findViewById(R.id.verifyOtpButton);
+        pinFromUser = findViewById(R.id.pin_view);
+        Backtosignup = findViewById(R.id.close_verify);
+        VerifyOtp = findViewById(R.id.verifyOtpButton);
+        otp = findViewById(R.id.verify_otp);
+        verification = findViewById(R.id.verify_verification);
+        detecting = findViewById(R.id.verify_detect);
         Backtosignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent startActivity = new Intent(VerifyOTP.this,SignUp.class);
-                Pair[] pair=new Pair[2];
-                pair[0]= new Pair<View,String>(Backtosignup, "backTr");
-                pair[1]= new Pair<View,String>(VerifyOtp, "button_trans");
-                ActivityOptions options=ActivityOptions.makeSceneTransitionAnimation(VerifyOTP.this,pair);
-                startActivity(startActivity,options.toBundle());
+                Intent startActivity = new Intent(VerifyOTP.this, SignUp.class);
+                Pair[] pair = new Pair[2];
+                pair[0] = new Pair<View, String>(Backtosignup, "backTr");
+                pair[1] = new Pair<View, String>(VerifyOtp, "button_trans");
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(VerifyOTP.this, pair);
+                startActivity(startActivity, options.toBundle());
             }
         });
         VerifyOtp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String code=pinFromUser.getText().toString();
-                if (!code.isEmpty()){
+                String code = pinFromUser.getText().toString();
+                if (!code.isEmpty()) {
                     verifyCode(code);
-                }
-                else {
+                } else {
                     pinFromUser.setError("INCORRECT OTP");
                 }
             }
@@ -140,6 +139,7 @@ public class VerifyOTP extends AppCompatActivity {
                             phoneVerification.setVisibility(View.GONE);
                             VerifyOtp.setVisibility(View.GONE);
                             pinFromUser.setVisibility(View.GONE);
+                            Backtosignup.setVisibility(View.GONE);
                             phoneVerified.setVisibility(View.VISIBLE);
                             regUser();
                         }
@@ -176,7 +176,7 @@ public class VerifyOTP extends AppCompatActivity {
                                     startActivity(intent);
                                     finish();
                                 }
-                            },2000);
+                            },3000);
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(VerifyOTP.this, "Authentication failed."+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
