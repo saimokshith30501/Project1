@@ -89,7 +89,7 @@
            app:itemHeight="40dp"
            app:itemRadius="5dp"
            app:lineColor="@color/black"
-           android:itemBackground="#E4E4E4"
+           android:itemBackground="#F6ECEC"
            android:textColor="@color/black"
            android:inputType="number"
            style="@style/PinWidget.PinView"

@@ -176,7 +176,7 @@ public class VerifyOTP extends AppCompatActivity {
                                     startActivity(intent);
                                     finish();
                                 }
-                            },3000);
+                            },2000);
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(VerifyOTP.this, "Authentication failed."+task.getException().getMessage(),Toast.LENGTH_SHORT).show();

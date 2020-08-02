@@ -56,6 +56,7 @@ public class SignUp extends AppCompatActivity {
         pair[1]= new Pair<View,String>(SignUp, "button_trans");
         ActivityOptions options=ActivityOptions.makeSceneTransitionAnimation(SignUp.this,pair);
         startActivity(startActivity,options.toBundle());
+        finish();
     }
     private Boolean vaidateName() {
         String val = fname.getEditText().getText().toString();
@@ -111,7 +112,7 @@ public class SignUp extends AppCompatActivity {
                 "(?=.*[a-zA-Z])" +      //any letter
                 "(?=.*[@#$%^&+=])" +    //at least 1 special character
                 "(?=\\S+$)" +           //no white spaces
-                ".{6,}" +               //at least 4 characters
+                ".{6,}" +               //at least 6 characters
                 "$";
 
         if (val.isEmpty()) {

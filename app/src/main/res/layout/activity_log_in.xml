@@ -116,6 +116,19 @@
                 android:drawableStart="@drawable/ic_padlock">
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/forgot_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="#00000000"
+            android:padding="10dp"
+            android:textSize="14sp"
+            android:onClick="recoverPass"
+            android:text="forgot password"
+            android:textColor="#000000"
+            android:textStyle="bold">
+        </Button>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/log_loginBt"
             android:layout_width="300dp"
@@ -134,7 +147,7 @@
             android:text="Log In"
             android:textColor="#000000"
             android:textSize="18sp"
-            android:onClick="callSignup"
+            android:onClick="callLogin"
             android:textAlignment="center"
             android:transitionName="button_trans"/>
         <TextView
