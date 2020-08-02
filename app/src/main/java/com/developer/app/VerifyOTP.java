@@ -173,6 +173,7 @@ public class VerifyOTP extends AppCompatActivity {
                                 public void run(){
                                     Toast.makeText(VerifyOTP.this, "Signed in as "+email,Toast.LENGTH_SHORT).show();
                                     Intent intent=new Intent(getApplicationContext(), Profile.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                     startActivity(intent);
                                     finish();
                                 }
